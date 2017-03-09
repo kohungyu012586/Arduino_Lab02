@@ -1,0 +1,38 @@
+const byte startPin=1;
+const byte endPin=8;
+
+void setup() {
+  for (byte i = startPin; i<= endPin; i++) {
+    pinMode(i, OUTPUT);
+  }
+}
+
+void loop() {
+  byte i;
+  byte lightPin = startPin;
+  
+  
+  for (i=startPin; i<= endPin; i++) {
+  	
+  	digitalWrite(lightPin, HIGH);
+ 	 if (lightPin < endPin) {
+ 	 lightPin ++;
+	  } else {
+    	lightPin = startPin;
+  	}
+    delay (100);
+  	digitalWrite(i,LOW);
+	  }
+  
+  for (i=endPin;i>=startPin;i--) {
+  digitalWrite(i,LOW);
+  if (lightPin > startPin) {
+  lightPin --;
+  } else {
+    lightPin = endPin;
+  }
+  digitalWrite(lightPin, HIGH);
+  delay (100);
+    digitalWrite(i,LOW);
+  }
+}
